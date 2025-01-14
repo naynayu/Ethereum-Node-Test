@@ -60,34 +60,34 @@ HTTP server started           endpoint=0.0.0.0:8545
 	1.	Open a text editor (e.g., Nano, VS Code, PyCharm).
 	2.	Write the following code and save it as eth_node.py:
 
-`from web3 import Web3`
+`from web3 import Web3
 
-`# Connect to the Ethereum node (replace with your node's URL)
+# Connect to the Ethereum node (replace with your node's URL)
 node_url = "http://localhost:8545"
-web3 = Web3(Web3.HTTPProvider(node_url))`
+web3 = Web3(Web3.HTTPProvider(node_url))
 
-`# Check connection
+# Check connection
 if web3.is_connected():
-    print("Successfully connected to the Ethereum node!")`
+    print("Successfully connected to the Ethereum node!")
     
-    # Get the latest block number
-    latest_block = web3.eth.block_number
+ # Get the latest block number
+ latest_block = web3.eth.blockNumber
     print(f"Latest Block Number: {latest_block}")
     
-    # Get details of the latest block
-    block = web3.eth.get_block(latest_block)
+ # Get details of the latest block
+ block = web3.eth.get_block(latest_block)
     print(f"Block Hash: {block.hash.hex()}")
     print(f"Block Transactions: {len(block.transactions)}")
-`else:
+else:
     print("Failed to connect to the Ethereum node.")`
 
 9. Run the Python Script
-	1.	Navigate to the directory where you saved the eth_node.py script:
+Navigate to the directory where you saved the eth_node.py script:
 
 cd /path/to/your/script
 
 
-	2.	Execute the script:
+2.	Execute the script:
 
 python3 eth_node.py
 
