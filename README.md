@@ -101,7 +101,28 @@ title: 'Setting up a Node: Lodestar and Geth'
    npm link
    cd ..
    ```
-8. 
+8. Create the start script
+
+   ```bash
+   #!/bin/bash
+
+    # Start Lodestar with JWT authentication
+    lodestar beacon \
+      --network goerli \
+      --eth1 \
+      --execution.urls http://localhost:8551 \
+      --jwt-secret /root/jwt/jwt.hex
+
+   # Start Geth with JWT authentication
+   geth \
+     --http \
+     --http.addr 0.0.0.0 \
+     --http.api eth,net,web3,engine,admin \
+     --authrpc.jwtsecret /root/jwt/jwt.hex \
+     --authrpc.port 8551 \
+     --authrpc.addr 0.0.0.0 &
+
+   ```
 1. Create a Docker Container
 
    ```bash 
